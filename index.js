@@ -58,4 +58,9 @@ const questIntern = [
     }
 ];
 
-
+// add functions to:
+// create new or Exit 
+// ask what role 
+// depending on role, ask base q's then specific q's 
+// create "new Employee" 
+// push profile to html
