@@ -26,17 +26,6 @@ const questRole = [
         }
     }
 ];
-const questRole1 = [
-    {
-        name: "manager",
-        message: "Is this a Manager?",
-        type: "list",
-        choices: ["yes", "no"],
-        filter: function(val) {
-            return val.toLowerCase();
-        }
-    }
-];
 
 const questManager = [
     {
@@ -165,8 +154,9 @@ function createIntern() {
     }) 
 };
 
+// push profiles to html
 function generateHTML() {
     
 }
 
-// push profile to html
+
