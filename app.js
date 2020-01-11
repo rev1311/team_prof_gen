@@ -103,7 +103,7 @@ function createProf() {
         if (prof.create === 'yes') {
             createRole();
         } else {
-            createHTML();
+            console.log("Exit");
         }
     })
 };
@@ -126,8 +126,9 @@ function createManager() {
         var temp1 = new Manager(manEmp.Name, manEmp.Id, manEmp.Email);
         managers.push(temp1);
         // console.log(manEmp);
-        // console.log(temp1);
+        console.log(temp1);
         // console.log(managers);
+        createHTMLm();
         createProf();
     })
 };
@@ -137,8 +138,9 @@ function createEngineer() {
         var temp2 = new Engineer(engEmp.Name, engEmp.Id, engEmp.Email, engEmp.github);
         engineers.push(temp2);
         // console.log(engEmp);
-        // console.log(temp2);
+        console.log(temp2);
         // console.log(engineers);
+        createHTMLe();
         createProf();
     })
 };
@@ -148,15 +150,38 @@ function createIntern() {
         var temp3 = new Intern(intEmp.Name, intEmp.Id, intEmp.Email, intEmp.school);
         interns.push(temp3);
         // console.log(intEmp);
-        // console.log(temp3);
+        console.log(temp3);
         // console.log(engineers); 
+        createHTMLi();
         createProf();
     }) 
 };
 
-// push profiles to html
-function createHTML() {
-    
-}
+function createHTMLm() {
+    fs.appendFileSync("./output/manager.html", managers, function(err) {
+        if (err) {
+          console.log(err);
+        }
+        console.log("Manager Successfully Added!");      
+    });
+};
+
+function createHTMLe() {
+    fs.appendFileSync("./output/engineer.html", engineers, function(err) {
+        if (err) {
+          console.log(err);
+        }
+        console.log("Engineer Successfully Added!");      
+    });
+};
+
+function createHTMLi() {
+    fs.appendFileSync("./output/intern.html", interns, function(err) {
+        if (err) {
+          console.log(err);
+        }
+        console.log("Intern Successfully Added!");      
+    });
+};
 
 
