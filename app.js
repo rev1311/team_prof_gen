@@ -124,11 +124,18 @@ function createRole() {
 function createManager() {
     inquirer.prompt(questManager).then(function(manEmp) {
         var temp1 = new Manager(manEmp.Name, manEmp.Id, manEmp.Email);
-        managers.push(temp1);
-        // console.log(manEmp);
-        console.log(temp1);
-        // console.log(managers);
-        createHTMLm();
+        var manCard =
+       `<div class="card text-center" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">${manEmp.Name}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">${manEmp.role}</h6>
+          <p class="card-text">${manEmp.Id}</p>
+          <a href="#" class="card-link">${manEmp.Email}</a>
+          <a href="#" class="card-link">Office 100</a>
+        </div>
+        </div>`;
+        managers.push(manCard);
+        writeHTMLm();
         createProf();
     })
 };
@@ -136,11 +143,18 @@ function createManager() {
 function createEngineer() {
     inquirer.prompt(questEngineer).then(function(engEmp) {
         var temp2 = new Engineer(engEmp.Name, engEmp.Id, engEmp.Email, engEmp.github);
-        engineers.push(temp2);
-        // console.log(engEmp);
-        console.log(temp2);
-        // console.log(engineers);
-        createHTMLe();
+        var engCard =
+       `<div class="card text-center" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">${engEmp.Name}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">${engEmp.role}</h6>
+          <p class="card-text">${engEmp.Id}</p>
+          <a href="#" class="card-link">${engEmp.Email}</a>
+          <a href="#" class="card-link">${engEmp.github}</a>
+        </div>
+        </div>`;
+        engineers.push(engCard);
+        writeHTMLe();
         createProf();
     })
 };
@@ -148,16 +162,23 @@ function createEngineer() {
 function createIntern() {
     inquirer.prompt(questIntern).then(function(intEmp) {
         var temp3 = new Intern(intEmp.Name, intEmp.Id, intEmp.Email, intEmp.school);
-        interns.push(temp3);
-        // console.log(intEmp);
-        console.log(temp3);
-        // console.log(engineers); 
-        createHTMLi();
+        var intCard =
+       `<div class="card text-center" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">${intEmp.Name}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">${intEmp.role}</h6>
+          <p class="card-text">${intEmp.Id}</p>
+          <a href="#" class="card-link">${intEmp.Email}</a>
+          <a href="#" class="card-link">${intEmp.school}</a>
+        </div>
+        </div>`;
+        interns.push(intCard);
+        writeHTMLi();
         createProf();
     }) 
 };
 
-function createHTMLm() {
+function writeHTMLm() {
     fs.appendFileSync("./output/manager.html", managers, function(err) {
         if (err) {
           console.log(err);
@@ -166,7 +187,7 @@ function createHTMLm() {
     });
 };
 
-function createHTMLe() {
+function writeHTMLe() {
     fs.appendFileSync("./output/engineer.html", engineers, function(err) {
         if (err) {
           console.log(err);
@@ -175,7 +196,7 @@ function createHTMLe() {
     });
 };
 
-function createHTMLi() {
+function writeHTMLi() {
     fs.appendFileSync("./output/intern.html", interns, function(err) {
         if (err) {
           console.log(err);
@@ -183,5 +204,4 @@ function createHTMLi() {
         console.log("Intern Successfully Added!");      
     });
 };
-
 
