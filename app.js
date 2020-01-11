@@ -99,18 +99,18 @@ createProf();
 
 function createProf() {
     inquirer.prompt(questCreate).then(function(prof) {
-       console.log(prof.create)
+    //    console.log(prof.create)
         if (prof.create === 'yes') {
             createRole();
         } else {
-            createProf();
+            createHTML();
         }
     })
 };
 
 function createRole() {
     inquirer.prompt(questRole).then(function(role) {    
-        console.log(role.role);
+        // console.log(role.role);
         if (role.role === 'manager') {
             createManager();
         } else if (role.role === 'engineer') {
@@ -155,7 +155,7 @@ function createIntern() {
 };
 
 // push profiles to html
-function generateHTML() {
+function createHTML() {
     
 }
 
